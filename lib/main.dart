@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:act_7/inicial.dart';
+import 'package:act_7/ejercicio1.dart';
+import 'package:act_7/ejercicio2.dart';
+import 'package:act_7/ejercicio3.dart';
+import 'package:act_7/ejercicio4.dart';
+import 'package:act_7/ejercicio5.dart';
+import 'package:act_7/ejercicio6.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,20 +31,25 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  const MyHomePage({super.key, required this.title});  
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Rutas entre páginas',
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const inicial(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/pantalla2': (context) => const Ejercicio1(),
+        '/pantalla3': (context) => const Ejercicio2(),
+        '/pantalla4': (context) => const Ejercicio3(),
+        '/pantalla5': (context) => const Ejercicio4(),
+        '/pantalla6': (context) => const Ejercicio5(),
+        '/pantalla7': (context) => const Ejercicio6(),
+      },
     );
   }
 }
